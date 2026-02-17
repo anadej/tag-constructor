@@ -2,6 +2,8 @@ import { useState } from "react";
 import { clsx } from "clsx";
 import type { TagItem } from "@/types/tagline.ts";
 import { CloseIcon, IconWrapperDots } from "@/shared/icons";
+import { HEADER_BUTTON_CLASS } from "@/constants/panelStyles";
+import { BASE_LABEL_TYPOGRAPHY } from "@/constants/typography";
 
 interface TagListItemProps {
   tag: TagItem;
@@ -71,11 +73,8 @@ export const TagListItem = ({
         <span
           className="flex-1 min-w-0 text-left truncate"
           style={{
-            fontFamily: "'Onest', sans-serif",
+            ...BASE_LABEL_TYPOGRAPHY,
             fontWeight: 400,
-            fontSize: "14px",
-            lineHeight: "140%",
-            letterSpacing: "-0.0044em",
             color: "#FFFFFF",
           }}
         >
@@ -84,7 +83,7 @@ export const TagListItem = ({
 
         <button
           type="button"
-          className="border-0 bg-transparent text-text-secondary rounded-md text-lg leading-none flex-shrink-0 transition-colors duration-150 hover:bg-surface hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-panel"
+          className={HEADER_BUTTON_CLASS}
           onClick={(e) => {
             e.stopPropagation();
             onRemove();

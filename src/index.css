@@ -5,7 +5,6 @@
 @layer base {
   body {
     @apply bg-bg text-white text-sm leading-normal font-sans antialiased;
-    font-family: 'Onest', system-ui, -apple-system, sans-serif;
   }
   #root {
     @apply min-h-screen p-6;

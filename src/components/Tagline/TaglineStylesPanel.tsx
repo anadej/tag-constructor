@@ -22,9 +22,10 @@ import { SectionBox } from "@/components/panels/SectionBox.tsx";
 import { ControlNav } from "@/components/panels/ControlNav.tsx";
 import { PanelControlButton } from "@/components/panels/PanelControlButton.tsx";
 import { AlignLeftIcon, AlignCenterIcon, AlignRightIcon } from "@/shared/icons";
+import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
+import { BASE_LABEL_TYPOGRAPHY } from "@/constants/typography";
 
-const styleButtonLabelCls =
-  "font-[Onest] font-medium leading-[140%] text-center";
+const styleButtonLabelCls = "font-medium text-center";
 
 const renderSectionContent = (
   sectionId: (typeof TAGLINE_STYLE_SECTIONS)[number]["id"],
@@ -45,7 +46,7 @@ const renderSectionContent = (
             >
               <span
                 className={styleButtonLabelCls}
-                style={{ fontSize: "14px", letterSpacing: "-0.002em" }}
+                style={{ ...BASE_LABEL_TYPOGRAPHY, letterSpacing: "-0.002em" }}
               >
                 Aa
               </span>
@@ -136,11 +137,7 @@ export const TaglineStylesPanel = observer(() => {
       showBack
       onBack={handleBack}
     >
-      <div
-        style={{
-          borderTop: "0.996252px solid rgba(233, 236, 246, 0.07)",
-        }}
-      >
+      <div style={{ borderTop: BORDER_PANEL_TOP }}>
         {TAGLINE_STYLE_SECTIONS.map((section) => (
           <SectionBox
             key={section.id}

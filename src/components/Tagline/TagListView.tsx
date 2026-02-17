@@ -17,6 +17,7 @@ import { AddItemButton } from "@/components/panels/AddItemButton.tsx";
 import { StylesButton } from "@/components/panels/StylesButton.tsx";
 import { SortableTagItem } from "./SortableTagItem.tsx";
 import { ArrowRightIcon, StylesIcon } from "@/shared/icons";
+import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 
 export const TagListView = observer(() => {
   const { items } = taglineStore;
@@ -64,9 +65,7 @@ export const TagListView = observer(() => {
     <PanelLayout title="Tagline" onClose={handleClose}>
       <div
         className="flex flex-col items-start p-[14px] gap-2"
-        style={{
-          borderTop: "0.996252px solid rgba(233, 236, 246, 0.07)",
-        }}
+        style={{ borderTop: BORDER_PANEL_TOP }}
       >
         <ul className="list-none m-0 p-0 w-full flex flex-col gap-1">
           {items.length > 0 && (
@@ -94,7 +93,7 @@ export const TagListView = observer(() => {
       <div
         className="flex items-center px-[14px] h-12 border-0"
         style={{
-          borderTop: "1px solid rgba(233, 236, 246, 0.07)",
+          borderTop: BORDER_PANEL_TOP,
           borderRadius: "0px 0px 4px 4px",
         }}
       >

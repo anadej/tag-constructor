@@ -26,10 +26,7 @@ export const TaglinePreview = observer(() => {
   const alignCls = alignmentClass[style.alignment as TagAlignment];
 
   return (
-    <div
-      className="relative flex flex-col items-center justify-center min-h-screen text-center"
-      style={{ background: "#262624" }}
-    >
+    <div className="relative flex flex-col items-center justify-center min-h-screen text-center bg-bg">
       <h3
         className="m-0 w-[277px] text-white text-center"
         style={{

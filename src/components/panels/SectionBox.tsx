@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import { clsx } from "clsx";
+import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 
 const SECTION_BOX_STYLE = {
   padding: "12px 14px",
   gap: "8px",
-  borderTop: "0.996252px solid rgba(233, 236, 246, 0.07)",
+  borderTop: BORDER_PANEL_TOP,
   boxSizing: "border-box" as const,
 };
 

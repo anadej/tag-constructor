@@ -4,6 +4,7 @@ import { taglineStore } from "@/stores/taglineStore.ts";
 import { PanelLayout } from "@/components/panels/PanelLayout.tsx";
 import { FormField } from "@/components/panels/FormField.tsx";
 import { isValidUrl } from "@/utils/validateUrl.ts";
+import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 
 interface TagItemFormProps {
   editing?: boolean;
@@ -69,7 +70,7 @@ export const TagItemForm = observer(({ editing = false }: TagItemFormProps) => {
         style={{
           padding: "12px 14px",
           gap: "8px",
-          borderTop: "0.996252px solid rgba(233, 236, 246, 0.07)",
+          borderTop: BORDER_PANEL_TOP,
           boxSizing: "border-box",
         }}
       >

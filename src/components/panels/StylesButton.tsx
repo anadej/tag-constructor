@@ -1,15 +1,13 @@
 import type { ButtonHTMLAttributes } from "react";
 import { clsx } from "clsx";
+import { BASE_LABEL_TYPOGRAPHY } from "@/constants/typography";
 
 const STYLES_BUTTON_CLS =
   "flex items-center gap-[13px] w-full border-0 bg-transparent text-white cursor-pointer transition-colors duration-150 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset";
 
 const stylesButtonLabelStyle = {
-  fontFamily: "'Onest', sans-serif",
+  ...BASE_LABEL_TYPOGRAPHY,
   fontWeight: 500,
-  fontSize: "14px",
-  lineHeight: "140%",
-  letterSpacing: "-0.0044em",
 } as const;
 
 interface StylesButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
