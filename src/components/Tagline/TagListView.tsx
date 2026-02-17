@@ -1,0 +1,113 @@
+import { useCallback } from "react";
+import {
+  DndContext,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { observer } from "mobx-react-lite";
+import { taglineStore } from "@/stores/taglineStore.ts";
+import { PanelLayout } from "@/components/panels/PanelLayout.tsx";
+import { AddItemButton } from "@/components/panels/AddItemButton.tsx";
+import { StylesButton } from "@/components/panels/StylesButton.tsx";
+import { SortableTagItem } from "./SortableTagItem.tsx";
+import { ArrowRightIcon, StylesIcon } from "@/shared/icons";
+
+export const TagListView = observer(() => {
+  const { items } = taglineStore;
+  const tagIds = items.map((t) => t.id);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: { distance: 8 },
+    }),
+  );
+
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const { active, over } = event;
+      if (!over || active.id === over.id) return;
+      const fromIndex = items.findIndex((t) => t.id === active.id);
+      const toIndex = items.findIndex((t) => t.id === over.id);
+      if (fromIndex === -1 || toIndex === -1) return;
+      taglineStore.reorderTags(fromIndex, toIndex);
+    },
+    [items],
+  );
+
+  const handleClose = useCallback(() => {
+    taglineStore.close();
+  }, []);
+
+  const handleAddItem = useCallback(() => {
+    taglineStore.openCreatePanel();
+  }, []);
+
+  const handleStyles = useCallback(() => {
+    taglineStore.openStylesPanel();
+  }, []);
+
+  const handleSelectTag = useCallback((id: string) => {
+    taglineStore.openEditPanel(id);
+  }, []);
+
+  const handleRemoveTag = useCallback((id: string) => {
+    taglineStore.removeTag(id);
+  }, []);
+
+  return (
+    <PanelLayout title="Tagline" onClose={handleClose}>
+      <div
+        className="flex flex-col items-start p-[14px] gap-2"
+        style={{
+          borderTop: "0.996252px solid rgba(233, 236, 246, 0.07)",
+        }}
+      >
+        <ul className="list-none m-0 p-0 w-full flex flex-col gap-1">
+          {items.length > 0 && (
+            <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+              <SortableContext
+                items={tagIds}
+                strategy={verticalListSortingStrategy}
+              >
+                {items.map((tag) => (
+                  <SortableTagItem
+                    key={tag.id}
+                    tag={tag}
+                    onSelect={handleSelectTag}
+                    onRemove={handleRemoveTag}
+                  />
+                ))}
+              </SortableContext>
+            </DndContext>
+          )}
+          <li>
+            <AddItemButton onClick={handleAddItem} />
+          </li>
+        </ul>
+      </div>
+      <div
+        className="flex items-center px-[14px] h-12 border-0"
+        style={{
+          borderTop: "1px solid rgba(233, 236, 246, 0.07)",
+          borderRadius: "0px 0px 4px 4px",
+        }}
+      >
+        <StylesButton
+          iconLeft={<StylesIcon size={16} className="text-white" />}
+          iconRight={
+            <ArrowRightIcon size={16} className="text-white opacity-80" />
+          }
+          onClick={handleStyles}
+        >
+          Styles
+        </StylesButton>
+      </div>
+    </PanelLayout>
+  );
+});
