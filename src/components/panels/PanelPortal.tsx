@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -27,25 +27,38 @@ export const PanelPortal = ({
   anchorY,
   children,
 }: PanelPortalProps) => {
-  const handleEscape = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    },
-    [onClose],
-  );
-
   useEffect(() => {
     if (!isOpen) return;
-    window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, [isOpen, handleEscape]);
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const panel = document.querySelector("[data-panel-container]");
+      if (panel && !panel.contains(target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside, true);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
   const content = (
     <>
-      <div className="fixed inset-0 z-[999]" aria-hidden onClick={onClose} />
+      <div
+        className="fixed inset-0"
+        aria-hidden="true"
+        style={{
+          zIndex: 999,
+          background: "transparent",
+        }}
+      />
       <motion.div
+        data-panel-container
         style={{
           position: "fixed",
           left: anchorX,
@@ -53,7 +66,6 @@ export const PanelPortal = ({
           zIndex: 1000,
         }}
         {...panelMotion}
-        onClick={(e) => e.stopPropagation()}
       >
         <AnimatePresence mode="wait">{children}</AnimatePresence>
       </motion.div>

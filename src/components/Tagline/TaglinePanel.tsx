@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { taglineStore } from "@/stores/taglineStore.ts";
 import { PanelPortal, PanelSlide } from "@/components/panels/PanelPortal.tsx";
@@ -22,12 +23,31 @@ const renderPanelContent = (kind: PanelKind): React.ReactNode => {
 };
 
 export const TaglinePanel = observer(() => {
-  const { isOpen, close, anchorX, anchorY, activePanel } = taglineStore;
+  const { isOpen, anchorX, anchorY, activePanel } = taglineStore;
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.keyCode === 27) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (activePanel === "list") {
+          taglineStore.close();
+        } else {
+          taglineStore.backToMain();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape, true);
+    return () => document.removeEventListener("keydown", handleEscape, true);
+  }, [isOpen, activePanel]);
 
   return (
     <PanelPortal
       isOpen={isOpen}
-      onClose={close}
+      onClose={() => taglineStore.close()}
       anchorX={anchorX}
       anchorY={anchorY}
     >

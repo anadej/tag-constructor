@@ -28,7 +28,7 @@ const styleButtonLabelCls =
 
 const renderSectionContent = (
   sectionId: (typeof TAGLINE_STYLE_SECTIONS)[number]["id"],
-  style: typeof taglineStore.style
+  style: typeof taglineStore.style,
 ): ReactNode => {
   switch (sectionId) {
     case "style":
@@ -121,8 +121,12 @@ const renderSectionContent = (
 export const TaglineStylesPanel = observer(() => {
   const { style } = taglineStore;
 
-  const handleClose = (): void => {
+  const handleBack = (): void => {
     taglineStore.backToMain();
+  };
+
+  const handleClose = (): void => {
+    taglineStore.close();
   };
 
   return (
@@ -130,7 +134,7 @@ export const TaglineStylesPanel = observer(() => {
       title="Styles"
       onClose={handleClose}
       showBack
-      onBack={handleClose}
+      onBack={handleBack}
     >
       <div
         style={{

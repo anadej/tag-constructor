@@ -35,7 +35,7 @@ export const TagItemForm = observer(({ editing = false }: TagItemFormProps) => {
 
   const canSave = label.trim() !== "" && !linkError;
 
-  const handleClose = useCallback(() => {
+  const saveIfNeeded = useCallback(() => {
     if (canSave) {
       if (editing && taglineStore.editingId) {
         taglineStore.updateTag(taglineStore.editingId, label, link);
@@ -43,8 +43,17 @@ export const TagItemForm = observer(({ editing = false }: TagItemFormProps) => {
         taglineStore.addTag(label, link);
       }
     }
-    taglineStore.backToMain();
   }, [editing, label, link, canSave]);
+
+  const handleBack = useCallback(() => {
+    saveIfNeeded();
+    taglineStore.backToMain();
+  }, [saveIfNeeded]);
+
+  const handleClose = useCallback(() => {
+    saveIfNeeded();
+    taglineStore.close();
+  }, [saveIfNeeded]);
 
   if (editing && !tag) return null;
 
@@ -53,7 +62,7 @@ export const TagItemForm = observer(({ editing = false }: TagItemFormProps) => {
       title="Item"
       onClose={handleClose}
       showBack
-      onBack={handleClose}
+      onBack={handleBack}
     >
       <div
         className="flex flex-col items-start flex-none self-stretch grow-0"
