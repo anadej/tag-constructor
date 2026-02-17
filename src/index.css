@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-white text-sm leading-normal font-sans antialiased;
+    font-family: 'Onest', system-ui, -apple-system, sans-serif;
+  }
+  #root {
+    @apply min-h-screen p-6;
+  }
+  button {
+    @apply cursor-pointer;
+    font-family: inherit;
+  }
+  input {
+    font-family: inherit;
+    font-size: inherit;
+  }
+}
