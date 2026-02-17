@@ -41,7 +41,7 @@ export const TagListItem = ({
         aria-label="Drag to reorder"
         style={{
           position: "absolute",
-          left: "-9px",
+          left: "-13px",
           top: "50%",
           transform: "translateY(-50%)",
           width: "12px",
@@ -61,6 +61,7 @@ export const TagListItem = ({
             isHovered && !isDragging
               ? "rgba(255, 255, 255, 0.05)"
               : "transparent",
+          isolation: "isolate",
         }}
         onClick={() => onSelect()}
         onKeyDown={(e) => e.key === "Enter" && onSelect()}
