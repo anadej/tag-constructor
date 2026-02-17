@@ -2,6 +2,8 @@
 
 Tagline editor application built with React, TypeScript, and MobX.
 
+**Demo:** [Live demo](https://tag-constructor.netlify.app/)
+
 ## Tech Stack
 
 - React 19 + TypeScript
@@ -39,14 +41,3 @@ npm run build
 - `npm run build` - Build for production (TypeScript check + Vite build)
 - `npm run lint` - Run ESLint to check code quality
 - `npm run preview` - Preview production build locally
-
-## Project Structure
-
-```
-src/
-├── components/  # React components
-├── stores/      # MobX stores
-├── types/       # TypeScript types
-├── constants/   # Constants
-└── utils/       # Utilities
-```

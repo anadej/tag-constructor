@@ -7,9 +7,8 @@ import type {
 } from "@/types/tagline";
 import {
   VARIANT_STYLE,
-  CHIP_SIZE_CLASS,
   CHIP_RADIUS_CLASS,
-  CHIP_SIZE_STYLE,
+  CHIP_SIZE_CLASS,
 } from "@/constants/taglineStyles";
 
 interface TagChipProps {
@@ -28,17 +27,12 @@ export const TagChip = ({ tag, size, variant, radius, onClick }: TagChipProps) =
   const radiusCls = CHIP_RADIUS_CLASS[radius];
   const vs = VARIANT_STYLE[variant];
 
-  const sizeStyle = CHIP_SIZE_STYLE[size];
   const baseStyles: React.CSSProperties = {
     fontFamily: "'Onest', sans-serif",
     fontWeight: 500,
     color: vs.color,
     background: vs.background,
     ...(vs.border && { border: vs.border }),
-    height: sizeStyle.height,
-    padding: sizeStyle.padding,
-    fontSize: sizeStyle.fontSize,
-    lineHeight: sizeStyle.lineHeight,
   };
 
   const className = clsx(tagBase, sizeCls, radiusCls);

@@ -11,6 +11,7 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { observer } from "mobx-react-lite";
+import type { TagItem } from "@/types/tagline";
 import { taglineStore } from "@/stores/taglineStore";
 import { PanelLayout } from "@/components/panels/PanelLayout";
 import { AddItemButton } from "@/components/panels/AddItemButton";
@@ -21,7 +22,7 @@ import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 
 export const TagListView = observer(() => {
   const { items } = taglineStore;
-  const tagIds = items.map((t) => t.id);
+  const tagIds = items.map((t: TagItem) => t.id);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -33,8 +34,8 @@ export const TagListView = observer(() => {
     (event: DragEndEvent) => {
       const { active, over } = event;
       if (!over || active.id === over.id) return;
-      const fromIndex = items.findIndex((t) => t.id === active.id);
-      const toIndex = items.findIndex((t) => t.id === over.id);
+      const fromIndex = items.findIndex((t: TagItem) => t.id === active.id);
+      const toIndex = items.findIndex((t: TagItem) => t.id === over.id);
       if (fromIndex === -1 || toIndex === -1) return;
       taglineStore.reorderTags(fromIndex, toIndex);
     },
@@ -74,7 +75,7 @@ export const TagListView = observer(() => {
                 items={tagIds}
                 strategy={verticalListSortingStrategy}
               >
-                {items.map((tag) => (
+                {items.map((tag: TagItem) => (
                   <SortableTagItem
                     key={tag.id}
                     tag={tag}

@@ -38,53 +38,12 @@ export const VARIANT_STYLE: Record<
   },
 };
 
-export const CHIP_SIZE_STYLE: Record<
-  TagSize,
-  {
-    height: string;
-    padding: string;
-    fontSize: string;
-    lineHeight: string;
-  }
-> = {
-  XS: {
-    height: "26px",
-    padding: "6px 14px",
-    fontSize: "12px",
-    lineHeight: "140%",
-  },
-  S: {
-    height: "32px",
-    padding: "7px 17px",
-    fontSize: "14px",
-    lineHeight: "140%",
-  },
-  M: {
-    height: "38px",
-    padding: "8px 20px",
-    fontSize: "16px",
-    lineHeight: "140%",
-  },
-  L: {
-    height: "42px",
-    padding: "9px 22px",
-    fontSize: "18px",
-    lineHeight: "140%",
-  },
-  XL: {
-    height: "46px",
-    padding: "10px 24px",
-    fontSize: "20px",
-    lineHeight: "140%",
-  },
-};
-
 export const CHIP_SIZE_CLASS: Record<TagSize, string> = {
-  XS: "h-[26px]",
-  S: "h-[32px]",
-  M: "h-[38px]",
-  L: "h-[42px]",
-  XL: "h-[46px]",
+  XS: "h-[26px] py-[6px] px-[14px] text-[12px] leading-[1.4]",
+  S: "h-[32px] py-[7px] px-[17px] text-[14px] leading-[1.4]",
+  M: "h-[38px] py-[8px] px-[20px] text-[16px] leading-[1.4]",
+  L: "h-[42px] py-[9px] px-[22px] text-[18px] leading-[1.4]",
+  XL: "h-[46px] py-[10px] px-[24px] text-[20px] leading-[1.4]",
 };
 
 export const CHIP_RADIUS_CLASS: Record<TagRadius, string> = {
