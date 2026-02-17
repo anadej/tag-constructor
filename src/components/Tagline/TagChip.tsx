@@ -4,13 +4,13 @@ import type {
   TagSize,
   TagVariant,
   TagRadius,
-} from "@/types/tagline.ts";
+} from "@/types/tagline";
 import {
   VARIANT_STYLE,
   CHIP_SIZE_CLASS,
   CHIP_RADIUS_CLASS,
   CHIP_SIZE_STYLE,
-} from "@/constants/taglineStyles.ts";
+} from "@/constants/taglineStyles";
 
 interface TagChipProps {
   tag: TagItem;

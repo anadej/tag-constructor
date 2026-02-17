@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { clsx } from "clsx";
-import type { TagItem } from "@/types/tagline.ts";
+import type { TagItem } from "@/types/tagline";
 import { CloseIcon, IconWrapperDots } from "@/shared/icons";
 import { HEADER_BUTTON_CLASS } from "@/constants/panelStyles";
 import { BASE_LABEL_TYPOGRAPHY } from "@/constants/typography";

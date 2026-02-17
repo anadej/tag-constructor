@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { clsx } from "clsx";
 import { taglineStore } from "@/stores/taglineStore";
-import { TagChip } from "./TagChip.tsx";
+import { TagChip } from "./TagChip";
 import type { TagAlignment, TagItem } from "@/types/tagline";
 
 const OFFSET = 8;

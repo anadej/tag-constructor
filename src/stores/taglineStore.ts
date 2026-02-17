@@ -7,8 +7,8 @@ import type {
   TagAlignment,
   TagVariant,
   TaglineData,
-} from "@/types/tagline.ts";
-import { saveTagline } from "@/api/taglineApi.ts";
+} from "@/types/tagline";
+import { saveTagline } from "@/api/taglineApi";
 import type { PanelKind } from "@/types/panel";
 
 const createId = (): string => crypto.randomUUID();

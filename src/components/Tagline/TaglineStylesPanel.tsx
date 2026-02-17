@@ -1,26 +1,26 @@
 import type { ReactNode } from "react";
 import { observer } from "mobx-react-lite";
-import { taglineStore } from "@/stores/taglineStore.ts";
+import { taglineStore } from "@/stores/taglineStore";
 import {
   TAG_VARIANTS,
   TAG_SIZES,
   TAG_RADIUS_OPTIONS,
   TAG_ALIGNMENTS,
-} from "@/types/tagline.ts";
+} from "@/types/tagline";
 import type {
   TagVariant,
   TagSize,
   TagRadius,
   TagAlignment,
-} from "@/types/tagline.ts";
+} from "@/types/tagline";
 import {
   VARIANT_STYLE,
   TAGLINE_STYLE_SECTIONS,
-} from "@/constants/taglineStyles.ts";
-import { PanelLayout } from "@/components/panels/PanelLayout.tsx";
-import { SectionBox } from "@/components/panels/SectionBox.tsx";
-import { ControlNav } from "@/components/panels/ControlNav.tsx";
-import { PanelControlButton } from "@/components/panels/PanelControlButton.tsx";
+} from "@/constants/taglineStyles";
+import { PanelLayout } from "@/components/panels/PanelLayout";
+import { SectionBox } from "@/components/panels/SectionBox";
+import { ControlNav } from "@/components/panels/ControlNav";
+import { PanelControlButton } from "@/components/panels/PanelControlButton";
 import { AlignLeftIcon, AlignCenterIcon, AlignRightIcon } from "@/shared/icons";
 import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 import { BASE_LABEL_TYPOGRAPHY } from "@/constants/typography";

@@ -1,8 +1,8 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { observer } from "mobx-react-lite";
-import type { TagItem } from "@/types/tagline.ts";
-import { TagListItem } from "./TagListItem.tsx";
+import type { TagItem } from "@/types/tagline";
+import { TagListItem } from "./TagListItem";
 
 interface SortableTagItemProps {
   tag: TagItem;

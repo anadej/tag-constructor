@@ -1,4 +1,4 @@
-import type { TagVariant, TagSize, TagRadius } from "@/types/tagline.ts";
+import type { TagVariant, TagSize, TagRadius } from "@/types/tagline";
 
 export const TAGLINE_STYLE_SECTIONS = [
   {

@@ -11,11 +11,11 @@ import {
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { observer } from "mobx-react-lite";
-import { taglineStore } from "@/stores/taglineStore.ts";
-import { PanelLayout } from "@/components/panels/PanelLayout.tsx";
-import { AddItemButton } from "@/components/panels/AddItemButton.tsx";
-import { StylesButton } from "@/components/panels/StylesButton.tsx";
-import { SortableTagItem } from "./SortableTagItem.tsx";
+import { taglineStore } from "@/stores/taglineStore";
+import { PanelLayout } from "@/components/panels/PanelLayout";
+import { AddItemButton } from "@/components/panels/AddItemButton";
+import { StylesButton } from "@/components/panels/StylesButton";
+import { SortableTagItem } from "./SortableTagItem";
 import { ArrowRightIcon, StylesIcon } from "@/shared/icons";
 import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { taglineStore } from "@/stores/taglineStore.ts";
-import { PanelPortal, PanelSlide } from "@/components/panels/PanelPortal.tsx";
-import { TagItemForm } from "./TagItemForm.tsx";
-import { TagListView } from "./TagListView.tsx";
-import { TaglineStylesPanel } from "./TaglineStylesPanel.tsx";
-import type { PanelKind } from "@/types/panel.ts";
+import { taglineStore } from "@/stores/taglineStore";
+import { PanelPortal, PanelSlide } from "@/components/panels/PanelPortal";
+import { TagItemForm } from "./TagItemForm";
+import { TagListView } from "./TagListView";
+import { TaglineStylesPanel } from "./TaglineStylesPanel";
+import type { PanelKind } from "@/types/panel";
 
 const renderPanelContent = (kind: PanelKind): React.ReactNode => {
   switch (kind) {

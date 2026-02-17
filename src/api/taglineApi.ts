@@ -1,4 +1,4 @@
-import type { TaglineData } from '@/types/tagline.ts';
+import type { TaglineData } from "@/types/tagline";
 
 const API_URL = 'http://api/tagline';
 

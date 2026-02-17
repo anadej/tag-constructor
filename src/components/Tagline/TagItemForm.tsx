@@ -1,9 +1,9 @@
 import { useCallback, useState, useEffect, useMemo } from "react";
 import { observer } from "mobx-react-lite";
-import { taglineStore } from "@/stores/taglineStore.ts";
-import { PanelLayout } from "@/components/panels/PanelLayout.tsx";
-import { FormField } from "@/components/panels/FormField.tsx";
-import { isValidUrl } from "@/utils/validateUrl.ts";
+import { taglineStore } from "@/stores/taglineStore";
+import { PanelLayout } from "@/components/panels/PanelLayout";
+import { FormField } from "@/components/panels/FormField";
+import { isValidUrl } from "@/utils/validateUrl";
 import { BORDER_PANEL_TOP } from "@/constants/panelStyles";
 
 interface TagItemFormProps {

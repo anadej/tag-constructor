@@ -1,5 +1,5 @@
-import { TaglinePreview } from '@/components/Tagline/TaglinePreview.tsx';
-import { TaglinePanel } from '@/components/Tagline/TaglinePanel.tsx';
+import { TaglinePreview } from "@/components/Tagline/TaglinePreview";
+import { TaglinePanel } from "@/components/Tagline/TaglinePanel";
 
 export default function App() {
   return (
